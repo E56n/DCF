@@ -3,50 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Diablo Convertido en Fiesta</title>
-    <!-- Vinculación a la hoja de estilos CSS -->
+    <title>Cuenta Regresiva</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <!-- Envolvemos la imagen en un div para aplicar el degradado -->
-        <div class="image-container">
-            <img src="src/Boton diablo.png" alt="El Diablo Convertido en 5CONTROL Fiesta" class="title-image">
-        </div>
-    </header>
-    <main>
-        <!-- Contenedor de la cuenta regresiva -->
-        <div id="countdown">
-            <h2>¡La cuenta regresiva ha comenzado!</h2>
-            <div id="timer">
-                <span id="days"></span> días 
-                <span id="hours"></span> horas 
-                <span id="minutes"></span> minutos 
-                <span id="seconds"></span> segundos
+    <div id="countdown">
+        <h2>¡La cuenta regresiva ha comenzado!</h2>
+        <div id="timer">
+            <div class="time-box">
+                <span id="days"></span>
+                <h3>Días</h3>
+            </div>
+            <div class="time-box">
+                <span id="hours"></span>
+                <h3>Horas</h3>
+            </div>
+            <div class="time-box">
+                <span id="minutes"></span>
+                <h3>Minutos</h3>
+            </div>
+            <div class="time-box">
+                <span id="seconds"></span>
+                <h3>Segundos</h3>
             </div>
         </div>
+    </div>
 
-        <h2>Eventos Pasados</h2>
-        <div class="carousel">
-            <img src="/api/placeholder/800/300?text=Volumen 1" alt="Volumen 1" class="active">
-            <img src="/api/placeholder/800/300?text=Volumen 2" alt="Volumen 2">
-            <img src="/api/placeholder/800/300?text=Volumen 3" alt="Volumen 3">
-            <img src="/api/placeholder/800/300?text=Volumen 4" alt="Volumen 4">
-        </div>
-        
-        <a href="https://www.instagram.com/666.DCF.666" class="instagram-button">Síguenos en Instagram @666.DCF.666</a>
-        
-        <div class="sponsors">
-            <h2>Patrocinadores Anteriores</h2>
-            <ul>
-                <li>Patrocinador 1</li>
-                <li>Patrocinador 2</li>
-                <li>Patrocinador 3</li>
-            </ul>
-        </div>
-    </main>
-    
-    <!-- Vinculación al archivo JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
