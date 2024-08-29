@@ -8,7 +8,7 @@ function nextImage() {
     images[currentIndex].classList.add('active');
 }
 
-setInterval(nextImage, 3000); // Cambia la imagen cada 3 segundos
+setInterval(nextImage, 5000); // Cambia la imagen cada 5 segundos
 
 console.log("Bienvenido a El Diablo Convertido en Fiesta");
 

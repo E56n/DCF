@@ -6,10 +6,22 @@
   }
   
   body {
-    font-family: Arial, sans-serif;
-    background-color: #1a1a1a;
+    font-family: 'Times New Roman', Times, serif; /* Cambia el tipo de letra a Times New Roman */
+    background-image: url('./src/Fondo.png'); /* Aquí pones la ruta de tu imagen */
+    background-size: cover; /* Esto hace que la imagen cubra todo el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Hace que la imagen de fondo se mantenga fija al hacer scroll */
     color: #ffffff;
-  }
+    text-shadow: 
+    0 0 5px #ff00ff, 
+    0 0 10px #ff00ff, 
+    0 0 20px #ff00ff, 
+    0 0 40px #ff00ff, 
+    -2px -2px 2px #000000, /* Sombra negra más evidente */
+    2px -2px 2px #000000, 
+    -2px 2px 2px #000000, 
+    2px 2px 2px #000000; /* Contorno negro */
+}
   
   header {
     background-color: #000000;
@@ -74,13 +86,25 @@
   
   .instagram-button {
     display: inline-block;
-    background-color: #ff00ff;
-    color: #00ffff;
-    padding: 0.5em 1em;
+    padding: 0; /* Elimina el padding para que el botón se ajuste al tamaño de la imagen */
+    font-size: 16px;
+    color: #fff;
+    background-color: #ffffff00;
     text-decoration: none;
     border-radius: 5px;
-    margin-bottom: 2em;
-  }
+    transition: background-color 0.3s ease;
+}
+
+.instagram-button:hover {
+    background-color: #fbfbfc00;
+}
+
+.instagram-button img {
+    width: 5%; /* Ajusta el tamaño de la imagen al 50% */
+    height: auto;
+    display: block; /* Asegura que la imagen se muestre como un bloque */
+}
+
   
   .sponsors {
     background-color: #1a1a1a;
@@ -88,21 +112,31 @@
     border-radius: 5px;
   }
   
-  /* Estilos para la cuenta regresiva */
-  #countdown {
+/* Estilos para la cuenta regresiva */
+#countdown {
     text-align: center;
     margin-top: 2em;
-  }
-  
-  #timer {
+}
+
+#timer {
+    font-family: 'Times New Roman', Times, serif; /* Cambia el tipo de letra a Times New Roman */
     font-size: 2.5em;
     font-weight: bold;
-    color: #ff00ff;
-    background-color: #1a1a1a;
-    background-color: ;
+    color: #ff00ff; /* Color del texto */
+    background-color: #ffffff00; /* Fondo transparente */
     padding: 1em;
     border-radius: 5px;
-  }
+    text-shadow: 
+    0 0 5px #ff00ff, 
+    0 0 10px #ff00ff, 
+    0 0 20px #ff00ff, 
+    0 0 40px #ff00ff, 
+    -2px -2px 2px #000000, /* Sombra negra ligera */
+    -2px -2px 2px #000000, 
+    -2px -2px 2px #000000, 
+    5px 5px 5px #000000; /* Contorno negro */
+}
+
   
   /* Estilos adicionales */
   .contenedor {
