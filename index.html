@@ -1,112 +1,114 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Diablo Convertido en Fiesta</title>
-    <!-- Vinculación a la hoja de estilos CSS -->
+    <title>El Diablo Convertido en 5CONTROL Fiesta</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Vinculación al ícono -->
     <link rel="icon" href="./src/Diablito_icon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
-        <!-- Envolvemos la imagen en un div para aplicar el degradado -->
         <div class="image-container">
             <img src="src/Boton diablo.png" alt="El Diablo Convertido en 5CONTROL Fiesta" class="title-image">
         </div>
     </header>
     <main>
-        <!-- Contenedor de la cuenta regresiva -->
         <div id="countdown">
-            <h2>¡Se abrierón las puertas del Infierno!</h2>
-            <div id="timer">
-                <span id="days">65</span> D: 
-                <span id="hours">23</span> H: 
-                <span id="minutes">49</span> M: 
-                <span id="seconds">26</span> S
+            <h2>¡SE ABRIRAN LAS PUERTAS DEL INFIERNO!</h2>
+            <div id="timer"></div>
+        </div>
+
+        <div class="carousel-container">
+            <h3>VOLUMEN II</h3>
+            <div class="carousel">
+                <button class="prev">❮</button>
+                <div class="cartel">
+                    <img src="./src/Diablito.png" alt="Diablito" class="diablito">
+                    <img src="./src/Beams/1.png" class="carousel-image"> 
+                    <img src="./src/volumenDos/uno.jpg" alt="Foto 2" class="carousel-image">
+                    <img src="./src/volumenDos/dos.jpg" alt="Foto 3" class="carousel-image">
+                    <img src="./src/volumenDos/tres.jpg" alt="Foto 4" class="carousel-image">
+                    <img src="./src/volumenDos/cuatro.jpg" alt="Foto 5" class="carousel-image">
+                    <img src="./src/volumenDos/cinco.jpg" alt="Foto 6" class="carousel-image">
+                    <img src="./src/volumenDos/seis.jpg" alt="Foto 7" class="carousel-image">
+                </div>
+                <button class="next">❯</button>
             </div>
         </div>
 
-        <h2>Eventos Pasados</h2>
-
-    <div class="carousel-container">
-        <div class="carousel" id="carousel1">
-            <button class="prev" onclick="prevImage()">&#10094;</button>
-            <img src="./src/Beams/1.png" alt="Volumen 1" class="active"> 
-            <img src="./src/volumenDos/uno.jpg" alt="Volumen 1" class="active">
-            <img src="./src/volumenDos/dos.jpg" alt="Volumen 1" class="active">
-            <img src="./src/volumenDos/tres.jpg" alt="Volumen 1" class="active">
-            <img src="./src/volumenDos/cuatro.jpg" alt="Volumen 1" class="active">
-            <img src="./src/volumenDos/cinco.jpg" alt="Volumen 1" class="active">
-            <img src="./src/volumenDos/seis.jpg" alt="Volumen 1" class="active">
-            <button class="next" onclick="nextImage()">&#10095;</button>
+        <div class="carousel-container">
+            <h3>VOLUMEN III</h3>
+            <div class="carousel">
+                <button class="prev">❮</button>
+                <div class="cartel">
+                    <img src="./src/Diablito.png" alt="Diablito" class="diablito">
+                    <img src="./src/Beams/2.png" class="carousel-image active"> <!-- Imagen inicial activa -->
+                    <img src="./src/volumenTres/uno.jpg" alt="Foto 1" class="carousel-image">
+                </div>
+                <button class="next">❯</button>
+            </div>
         </div>
-    </div>
-
-    <div class="carousel-container" id="carousel3"> 
-        <div class="carousel">
-            <button class="prev" onclick="prevImage()">&#10094;</button>
-            <img src="./src/Beams/2.png" alt="Volumen 2" class="active"> 
-            <img src="./src/volumenTres/uno.jpg" alt="Volumen 2" class="">
-            <button class="next" onclick="nextImage()">&#10095;</button>
-        </div>
-    </div>
-            
-    <div class="carousel-container" id="carousel3">
-        <div class="carousel">
-            <button class="prev" onclick="prevImage()">&#10094;</button>
-            <img src="./src/Beams/3.png" alt="Volumen 3" class="active"> 
-            <img src="./src/volumenCuatro/uno.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/dos.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/tres.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/cuatro.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/cinco.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/seis.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/siete.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/ocho.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/nueve.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/diez.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/once.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/doce.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/trece.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/catorce.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/quince.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/dieciseis.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/diecisiete.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/dieciocho.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/diecinueve.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/veinte.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/veintiuno.jpg" alt="Volumen 3">
-            <img src="./src/volumenCuatro/veintidos.jpg" alt="Volumen 3">
-            <button class="next" onclick="nextImage()">&#10095;</button>
-        </div>
-    </div>
-    <div class="video-player-container">
-        <button id="prev-video">  < </button>
-        <video id="video-player" class="video-js" controls>
-            <!-- Asegúrate de tener al menos un fuente de video aquí para empezar -->
-            <source id="video-source" src="./src/volumenCuatro/1.mp4" type="video/mp4">
-        </video>
-        <button id="next-video"> > </button>
-    </div>
-    
-    
-    <h2>Síguenos en Instagram </h2>
         
-        <a href="https://www.instagram.com/666.DCF.666" class="instagram-button instagram">
-            <img src="./src/Instagram.png" width="2.5px" height="auto">
-        </a>
-        <br> 
+
+        <div class="carousel-container">
+            <h3>VOLUMEN IV</h3>
+            <div class="carousel">
+                <button class="prev">❮</button>
+                <div class="cartel">
+                    <img src="./src/Diablito.png" alt="Diablito" class="diablito">
+                    <!-- Las imágenes del carrusel -->
+                    <img src="./src/Beams/3.png" alt="Volumen 4" class="carousel-image active">
+                    <img src="./src/volumenCuatro/uno.jpg" alt="Foto 1" class="carousel-image">
+                    <img src="./src/volumenCuatro/dos.jpg" alt="Foto 2" class="carousel-image">
+                    <img src="./src/volumenCuatro/tres.jpg" alt="Foto 3" class="carousel-image">
+                    <img src="./src/volumenCuatro/cuatro.jpg" alt="Foto 4" class="carousel-image">
+                    <img src="./src/volumenCuatro/cinco.jpg" alt="Foto 5" class="carousel-image">
+                    <img src="./src/volumenCuatro/seis.jpg" alt="Foto 6" class="carousel-image">
+                    <img src="./src/volumenCuatro/siete.jpg" alt="Foto 7" class="carousel-image">
+                    <img src="./src/volumenCuatro/ocho.jpg" alt="Foto 8" class="carousel-image">
+                    <img src="./src/volumenCuatro/nueve.jpg" alt="Foto 9" class="carousel-image">
+                    <img src="./src/volumenCuatro/diez.jpg" alt="Foto 10" class="carousel-image">
+                    <img src="./src/volumenCuatro/once.jpg" alt="Foto 11" class="carousel-image">
+                    <img src="./src/volumenCuatro/doce.jpg" alt="Foto 12" class="carousel-image">
+                    <img src="./src/volumenCuatro/trece.jpg" alt="Foto 13" class="carousel-image">
+                    <img src="./src/volumenCuatro/catorce.jpg" alt="Foto 14" class="carousel-image">
+                    <img src="./src/volumenCuatro/quince.jpg" alt="Foto 15" class="carousel-image">
+                    <img src="./src/volumenCuatro/dieciseis.jpg" alt="Foto 16" class="carousel-image">
+                    <img src="./src/volumenCuatro/diecisiete.jpg" alt="Foto 17" class="carousel-image">
+                    <img src="./src/volumenCuatro/dieciocho.jpg" alt="Foto 18" class="carousel-image">
+                    <img src="./src/volumenCuatro/diecinueve.jpg" alt="Foto 19" class="carousel-image">
+                    <img src="./src/volumenCuatro/veinte.jpg" alt="Foto 20" class="carousel-image">
+                    <img src="./src/volumenCuatro/veintiuno.jpg" alt="Foto 21" class="carousel-image">
+                    <img src="./src/volumenCuatro/veintidos.jpg" alt="Foto 22" class="carousel-image">
+                </div>
+                <button class="next">❯</button>
+            </div>
+        </div>
+        
+        <div class="carousel-container">
+            <h3>VOLUMEN IV VIDEOS</h3>
+            <div class="carousel">
+                <button class="prev">&#10094;</button>
+                <div class="cartel">
+                    <!-- Contenedor para los videos del carrusel -->
+                    <video id="carousel-video" controls>
+                        <source src="./src/volumenCuatro/1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
+        
+
         <div class="sponsors">
-            <h2>Patrocinadores Anteriores</h2>
-            <ul>
-                <li>FourLoko</li> <br>
-                <img src="./src/DiblitoFourLoko.png" width="500px" height="auto">
-            </ul>
+            <div class="speech-bubble">
+                <img src="./src/Diablito_dialogo.png" alt="Diablito FourLoko" width="407" height="237">
+                <p>Agradecemos a Fourloko por patrocinar nuestro el Diablo Convertido en Fiesta Volumen IV.
+                <br>Síguenos en Instagram: @666.dcf.66</p>
+            </div>
         </div>
     </main>
-    
-    <!-- Vinculación al archivo JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>

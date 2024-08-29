@@ -1,60 +1,87 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Configura todos los carruseles en la página
-    document.querySelectorAll('.carousel').forEach(setupCarousel);
-
-    // Configura el reproductor de videos
-    setupVideoPlayer();
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    setupCarousels();
 });
 
-// Configura el carrusel
-function setupCarousel(carousel) {
-    const items = carousel.querySelectorAll('img, video');
-    let currentIndex = 0;
+function updateCountdown() {
+    const countdownDate = new Date('2024-11-02T20:00:00-06:00');
+    const now = new Date();
+    const distance = countdownDate - now;
 
-    function showItem(index) {
-        items[currentIndex].classList.remove('active');
-
-        // Pausa y reinicia el video actual si está en reproducción
-        if (items[currentIndex].tagName.toLowerCase() === 'video') {
-            console.log('Pausando y reiniciando video:', items[currentIndex]);
-            items[currentIndex].pause(); // Pausa el video actual
-            items[currentIndex].currentTime = 0; // Reinicia el video actual
-        }
-
-        currentIndex = index;
-
-        // Reproduce el siguiente video si es un video
-        if (items[currentIndex].tagName.toLowerCase() === 'video') {
-            console.log('Reproduciendo video:', items[currentIndex]);
-            items[currentIndex].play(); // Reproduce el siguiente video
-        }
-
-        items[currentIndex].classList.add('active');
+    if (distance < 0) {
+        document.getElementById('countdown').innerHTML = "<h2>¡SE ABRIRAN LAS PUERTAS DEL INFIERNO!</h2>";
+        return;
     }
 
-    function nextItem() {
-        const nextIndex = (currentIndex + 1) % items.length;
-        showItem(nextIndex);
-    }
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    function prevItem() {
-        const prevIndex = (currentIndex - 1 + items.length) % items.length;
-        showItem(prevIndex);
-    }
-
-    // Navegación con botones
-    carousel.querySelector('.prev').addEventListener('click', prevItem);
-    carousel.querySelector('.next').addEventListener('click', nextItem);
-
-    // Cambia la imagen o video cada 3 segundos
-    const intervalId = setInterval(nextItem, 3000);
-
-    // Detiene el carrusel al hacer clic en los botones
-    carousel.querySelector('.prev').addEventListener('click', () => clearInterval(intervalId));
-    carousel.querySelector('.next').addEventListener('click', () => clearInterval(intervalId));
+    document.getElementById('timer').innerHTML = `
+        <div class="time-unit">
+            <div class="time-value">${days} :</div>
+            <div class="time-label">DÍAS</div>
+        </div>
+        <div class="time-unit">
+            <div class="time-value">${hours} :</div>
+            <div class="time-label">HORAS</div>
+        </div>
+        <div class="time-unit">
+            <div class="time-value">${minutes} :</div>
+            <div class="time-label">MINUTOS</div>
+        </div>
+        <div class="time-unit">
+            <div class="time-value">${seconds}</div>
+            <div class="time-label">SEGUNDOS</div>
+        </div>
+    `;
 }
 
-// Configura el reproductor de videos
+function setupCarousels() {
+    const carousels = document.querySelectorAll('.carousel');
+    carousels.forEach(carousel => {
+        const images = carousel.querySelectorAll('.carousel-image');
+        let currentIndex = 0; // Índice inicial
+
+        // Mostrar la primera imagen
+        images[currentIndex].classList.add('active');
+
+        const prevButton = carousel.querySelector('.prev');
+        const nextButton = carousel.querySelector('.next');
+
+        prevButton.addEventListener('click', () => navigateCarousel(carousel, 'prev', images));
+        nextButton.addEventListener('click', () => navigateCarousel(carousel, 'next', images));
+
+        // Cambio automático cada 3 segundos
+        setInterval(() => {
+            navigateCarousel(carousel, 'next', images);
+        }, 8000); // 3000 milisegundos = 3 segundos
+    });
+}
+
+function navigateCarousel(carousel, direction, images) {
+    // Encontrar la imagen activa actual
+    let currentIndex = Array.from(images).findIndex(image => image.classList.contains('active'));
+    
+    // Ocultar la imagen actual
+    images[currentIndex].classList.remove('active');
+
+    // Cambiar el índice según la dirección
+    if (direction === 'prev') {
+        currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+    } else if (direction === 'next') {
+        currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+    }
+
+    // Mostrar la nueva imagen
+    images[currentIndex].classList.add('active');
+}
+
+// Llama a la función de configuración cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', setupCarousels);
+
 function setupVideoPlayer() {
     const videoPlayer = document.getElementById('video-player');
     const videoSources = [
@@ -113,27 +140,64 @@ function setupVideoPlayer() {
     playVideo(currentVideoIndex);
 }
 
-// Cuenta regresiva
-function updateCountdown() {
-    const countdownDate = new Date('2024-11-02T20:00:00-06:00'); // Fecha y hora en CDMX
-    const now = new Date();
-    const distance = countdownDate - now;
+// Llama a la función de configuración cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', setupVideoPlayer);
 
-    if (distance < 0) {
-        document.getElementById('timer').innerHTML = "¡EL DIABLO HA LLEGADO!";
-        return;
+document.addEventListener('DOMContentLoaded', function() {
+    const videos = [
+       './src/volumenCuatro/1.mp4',
+        './src/volumenCuatro/2.mp4',
+        './src/volumenCuatro/3.mp4',
+        './src/volumenCuatro/4.mp4',
+        './src/volumenCuatro/5.mp4',
+        './src/volumenCuatro/6.mp4',
+        './src/volumenCuatro/7.mp4',
+        './src/volumenCuatro/8.mp4',
+        './src/volumenCuatro/9.mp4',
+        './src/volumenCuatro/10.mp4',
+        './src/volumenCuatro/11.mp4',
+        './src/volumenCuatro/12.mp4',
+        './src/volumenCuatro/13.mp4',
+        './src/volumenCuatro/14.mp4',
+        './src/volumenCuatro/15.mp4',
+        './src/volumenCuatro/16.mp4',
+        './src/volumenCuatro/17.mp4',
+        './src/volumenCuatro/18.mp4',
+        './src/volumenCuatro/19.mp4',
+        './src/volumenCuatro/20.mp4',
+        './src/volumenCuatro/21.mp4',
+        './src/volumenCuatro/22.mp4',
+        './src/volumenCuatro/23.mp4',
+        './src/volumenCuatro/24.mp4',
+        './src/volumenCuatro/25.mp4'
+    ];
+    let currentVideoIndex = 0;
+    const videoElement = document.getElementById('carousel-video');
+    const prevButton = document.querySelector('.carousel .prev');
+    const nextButton = document.querySelector('.carousel .next');
+
+    function showVideo(index) {
+        videoElement.src = videos[index];
+        videoElement.play();
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    function nextVideo() {
+        currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+        showVideo(currentVideoIndex);
+    }
 
-    document.getElementById('days').innerText = days;
-    document.getElementById('hours').innerText = hours;
-    document.getElementById('minutes').innerText = minutes;
-    document.getElementById('seconds').innerText = seconds;
-}
+    function prevVideo() {
+        currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+        showVideo(currentVideoIndex);
+    }
 
-// Actualiza la cuenta regresiva cada segundo
-setInterval(updateCountdown, 1000);
+    // Navegación automática cada 3 segundos
+    setInterval(nextVideo, 8000);
+
+    // Configurar eventos para botones de navegación
+    prevButton.addEventListener('click', prevVideo);
+    nextButton.addEventListener('click', nextVideo);
+
+    // Iniciar con el primer video
+    showVideo(currentVideoIndex);
+});

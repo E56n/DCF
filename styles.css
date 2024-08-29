@@ -1,229 +1,143 @@
-/* Estilos generales */
-* {
-  box-sizing: border-box;
+body {
+  font-family: "Times New Roman", Times, serif;
+  background-color: #000000;
+  color: #ffffff;
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: 'Times New Roman', Times, serif; /* Cambia el tipo de letra a Times New Roman */
-  background-image: url('./src/Fondo.png'); /* Aquí pones la ruta de tu imagen */
-  background-size: cover; /* Esto hace que la imagen cubra todo el fondo */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
-  background-attachment: fixed; /* Hace que la imagen de fondo se mantenga fija al hacer scroll */
-  color: #ffffff;
-  text-shadow: 
-  0 0 5px #ff00ff, 
-  0 0 10px #ff00ff, 
-  0 0 20px #ff00ff, 
-  0 0 40px #ff00ff, 
-  -2px -2px 2px #000000, /* Sombra negra más evidente */
-  2px -2px 2px #000000, 
-  -2px 2px 2px #000000, 
-  2px 2px 2px #000000; /* Contorno negro */
-}
-
-header {
-  background-color: #000000;
-  text-align: center;
-  padding: 1em;
-}
-
 .image-container {
-  position: relative;
-  display: inline-block;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .title-image {
   max-width: 100%;
   height: auto;
-  display: block;
 }
 
-.image-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom right, rgba(255, 0, 255, 0.5), rgba(0, 255, 255, 0.5));
-  z-index: -1;
-}
-
-main {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2em;
-}
-
-h2 {
-  color: #ff00ff;
-}
-
-/* Estilos del carrusel */
-.carousel-container {
-  position: relative;
-  width: 100%; /* Ocupa todo el ancho de la pantalla */
-}
-
-.carousel {
-  display: flex;
-  width: 125%; /* Ajustado a 100% para adaptarse a la pantalla */
-  height: 1000px; /* Ajusta la altura según sea necesario */
-  overflow: hidden;
-  position: relative;
-  margin-bottom: 2em;
-  align-items: center;
-  border-radius: 15px; /* Bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra difusa */
-}
-
-.carousel img, .carousel video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%; /* Ocupa todo el ancho del carrusel */
-  height: 100%; /* Ocupa toda la altura del carrusel */
-  object-fit: cover; /* Cubre completamente el área del carrusel */
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  border-radius: 15px; /* Bordes redondeados para las imágenes y videos */
-  border: 5px solid red; /* Añade un borde visible para ver si el video está siendo renderizado */
-}
-
-.carousel img.active, .carousel video.active {
-  opacity: 1; /* Solo la imagen o video activo será visible */
-}
-
-button.prev, button.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.7); /* Color de fondo de los botones con opacidad */
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 50%; /* Botones redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra difusa para los botones */
-  z-index: 10; /* Asegura que los botones estén sobre el carrusel */
-  font-size: 1.5em;
-  transition: background-color 0.3s ease;
-}
-
-button.prev:hover, button.next:hover {
-  background-color: rgba(0, 0, 0, 0.9); /* Color de fondo más oscuro al pasar el ratón sobre los botones */
-}
-
-button.prev {
-  left: 10px;
-}
-
-button.next {
-  right: 10px;
-}
-
-.video-player-container {
-  position: relative;
-  text-align: center;
-  margin-top: 20px;
-}
-
-#video-player {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 15px; /* Bordes redondeados del reproductor de video */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra difusa para el reproductor de video */
-}
-
-#prev-video, #next-video {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.7); /* Color de fondo de los botones con opacidad */
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 50%; /* Botones redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra difusa para los botones */
-  z-index: 10; /* Asegura que los botones estén sobre el reproductor de video */
-  font-size: 1.5em;
-  transition: background-color 0.3s ease;
-}
-
-#prev-video:hover, #next-video:hover {
-  background-color: rgba(0, 0, 0, 0.9); /* Color de fondo más oscuro al pasar el ratón sobre los botones */
-}
-
-#prev-video {
-  left: -50px; /* Ajusta la distancia desde el borde izquierdo del reproductor */
-}
-
-#next-video {
-  right: -50px; /* Ajusta la distancia desde el borde derecho del reproductor */
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)); /* Degradado */
-  pointer-events: none; /* Permite la interacción con la imagen */
-}
-
-.instagram-button:hover {
-  background-color: #fbfbfc00;
-}
-
-.instagram-button img {
-  width: 5%; /* Ajusta el tamaño de la imagen al 50% */
-  height: auto;
-  display: block; /* Asegura que la imagen se muestre como un bloque */
-}
-
-.sponsors {
-  background-color: #1a1a1a;
-  padding: 1em;
-  border-radius: 5px;
-}
-
-/* Estilos para la cuenta regresiva */
 #countdown {
   text-align: center;
-  margin-top: 2em;
+  margin-bottom: 30px;
+}
+
+#countdown h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 #timer {
-  font-family: 'Times New Roman', Times, serif; /* Cambia el tipo de letra a Times New Roman */
-  font-size: 2.5em;
-  font-weight: bold;
-  color: #ff00ff; /* Color del texto */
-  background-color: #ffffff00; /* Fondo transparente */
-  padding: 1em;
-  border-radius: 5px;
-  text-shadow: 
-  0 0 5px #ff00ff, 
-  0 0 10px #ff00ff, 
-  0 0 20px #ff00ff, 
-  0 0 40px #ff00ff, 
-  -2px -2px 2px #000000, /* Sombra negra ligera */
-  -2px -2px 2px #000000, 
-  -2px -2px 2px #000000, 
-  5px 5px 5px #000000; /* Contorno negro */
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
-/* Estilos adicionales */
-.contenedor {
-  color: #000000;
-  text-align: center;
-  margin-top: 3%;
+.time-unit {
+  background-color: #4c00823b;
+  border-radius: 35px;
+  padding: 10px;
+  min-width: 80px;
 }
+
+.time-value {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.time-label {
+  font-size: 14px;
+}
+.carousel-container {
+  margin-bottom: 30px;
+}
+
+.carousel-container {
+  margin-bottom: 30px;
+}
+
+.carousel-container h3 {
+  margin-bottom: 10px;
+  background-color: #4c00823b;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 35px;
+  width: 35%;
+}
+
+.carousel {
+  position: relative;
+  background-color: #4c00823b;
+  border-radius: 45px;
+  padding: 30px;
+  overflow: hidden;
+}
+
+.carousel .cartel {
+  position: relative;
+  width: 100%;
+  height: 237px;
+}
+
+.carousel .carousel-image {
+  width: 407px;
+  height: 237px;
+  display: none;
+}
+
+.carousel .carousel-image.active {
+  display: block;
+}
+
+.carousel .diablito {
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  right: 0;
+  width: 17%;
+  height: auto;
+}
+
+.carousel button {
+  background-color: #170b504b;
+  border: none;
+  color: #4c00823b;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel .prev {
+  left: 10px;
+}
+
+.carousel .next {
+  right: 10px;
+}
+
+.carousel .cartel {
+  position: relative;
+  width: 100%;
+  height: 237px;
+  display: flex; /* Añadir flexbox */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+}
+
+.carousel .carousel-image {
+  width: 407px;
+  height: 237px;
+  display: none; /* Ocultar por defecto */
+  border-radius: 15px;
+}
+
+.carousel .carousel-image.active {
+  display: block; /* Mostrar la imagen activa */
+  margin: 0 auto; /* Centrarlas horizontalmente si es necesario */
+  border-radius: 15px;
+}
+
 
 .cartel {
   width: 109px;
@@ -232,11 +146,12 @@ button.next {
   text-align: center;
   display: inline-block;
   margin: 5px;
-  border: 3px solid #000000;
+  border: 3px solid #ffffff00;
   border-radius: 5px;
 }
 
 .cartel > div {
+
   font-size: 50px;
   font-family: 'Chela One', sans-serif;
   animation: fade 3s;
@@ -250,82 +165,112 @@ button.next {
   font-weight: normal;
 }
 
-.h3 {
-  bottom: 0;
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+.sponsors {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.sponsors img {
+  max-width: 100%;
+  height: auto;
+}
+
+.speech-bubble {
+  position: relative;
+  display: inline-block;
+}
+
+.speech-bubble p {
+  position: absolute;
+  top: 35px; /* Ajusta según sea necesario */
+  left: 50px; /* Ajusta según sea necesario */
+  width: 85px; /* Ajusta según sea necesario */
+  font-size: 12px; /* Ajusta según sea necesario */
+  color: rgb(150, 15, 15); /* Ajusta según sea necesario */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajusta según sea necesario */
+}
+
+.carousel-container {
+  margin-bottom: 30px;
+  text-align: center; /* Centrar contenido */
+}
+
+.carousel-container h3 {
+  margin-bottom: 10px;
+  background-color: #4c00823b;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 35px;
+  width: 35%;
+  margin: 0 auto; /* Centrar el encabezado */
+}
+
+.carousel {
+  position: relative;
+  background-color: #4c00823b;
+  border-radius: 45px;
+  padding: 30px;
+  overflow: hidden;
+  display: inline-block; /* Ajustar a contenido interno */
+}
+
+.carousel .cartel {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
   margin: 0 auto;
+  position: relative;
 }
 
-.contenido {
-  width: 80%;
-  margin: 0 auto;
-  background-color: #1a1a1a;
-  border: 0px solid ;
-  z-index: 10;
+.carousel .cartel video {
+  width: 100%;
+  max-width: 800px; /* Tamaño máximo del video */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra difusa */
 }
 
-li {
-  display: inline-block;
-  font-size: 1.5em;
-  list-style-type: none;
-  padding: 1em;
-  text-transform: uppercase;
+.carousel button {
+  background-color: #32145841;
+  border: none;
+  color: #4c00823b;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%; /* Botones redondeados */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para botones */
 }
 
-li span {
-  display: block;
-  font-size: 4.5rem;
+.carousel .prev {
+  left: 10px;
 }
 
-.numeros {
-  font-family: 'Chela One', sans-serif;
-  font-size: 60px;
-  transition: .3s;
-  animation-name: fade;
-  animation-duration: 3s;
-}
-
-.responsivo1 {
-  display: inline-block;
-}
-
-.responsivo2 {
-  display: inline-block;
-}
-
-/* Media queries */
-@media (max-width: 450px) {
-  .contenedor {
-      margin-top: 15%;
-  }
-
-  .banner {
-      margin-bottom: 30px;
-  }
-
-  .cartel {
-      height: 99px;
-      width: 99px;
-  }
-
-  .cartel > div {
-      font-size: 45px;
-  }
-
-  .cartel > div > h3 {
-      font-size: 15px;
-      margin-top: 0px;
-  }
-}
-
-/* Animaciones */
-@keyframes fade {
-  0% {
-      opacity: 0;
-  }
-  30% {
-      opacity: 0;
-  }
-  100% {
-      opacity: 1;
-  }
+.carousel .next {
+  right: 10px;
 }
