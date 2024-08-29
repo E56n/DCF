@@ -28,13 +28,70 @@
         </div>
 
         <h2>Eventos Pasados</h2>
-        <div class="carousel">
-            <img src="./src/volumenDos/" alt="Volumen 1" class="active">
-            <img src="./src/volumenTres/" alt="Volumen 2" class="">
-            <img src="./src/volumenCuatro/" alt="Volumen 3" class="">
+
+    <div class="carousel-container">
+        <div class="carousel" id="carousel1">
+            <button class="prev" onclick="prevImage()">&#10094;</button>
+            <img src="./src/Beams/1.png" alt="Volumen 1" class="active"> 
+            <img src="./src/volumenDos/uno.jpg" alt="Volumen 1" class="active">
+            <img src="./src/volumenDos/dos.jpg" alt="Volumen 1" class="active">
+            <img src="./src/volumenDos/tres.jpg" alt="Volumen 1" class="active">
+            <img src="./src/volumenDos/cuatro.jpg" alt="Volumen 1" class="active">
+            <img src="./src/volumenDos/cinco.jpg" alt="Volumen 1" class="active">
+            <img src="./src/volumenDos/seis.jpg" alt="Volumen 1" class="active">
+            <button class="next" onclick="nextImage()">&#10095;</button>
         </div>
-        
-        <h2>Síguenos en Instagram </h2>
+    </div>
+
+    <div class="carousel-container" id="carousel3"> 
+        <div class="carousel">
+            <button class="prev" onclick="prevImage()">&#10094;</button>
+            <img src="./src/Beams/2.png" alt="Volumen 2" class="active"> 
+            <img src="./src/volumenTres/uno.jpg" alt="Volumen 2" class="">
+            <button class="next" onclick="nextImage()">&#10095;</button>
+        </div>
+    </div>
+            
+    <div class="carousel-container" id="carousel3">
+        <div class="carousel">
+            <button class="prev" onclick="prevImage()">&#10094;</button>
+            <img src="./src/Beams/3.png" alt="Volumen 3" class="active"> 
+            <img src="./src/volumenCuatro/uno.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/dos.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/tres.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/cuatro.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/cinco.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/seis.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/siete.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/ocho.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/nueve.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/diez.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/once.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/doce.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/trece.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/catorce.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/quince.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/dieciseis.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/diecisiete.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/dieciocho.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/diecinueve.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/veinte.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/veintiuno.jpg" alt="Volumen 3">
+            <img src="./src/volumenCuatro/veintidos.jpg" alt="Volumen 3">
+            <button class="next" onclick="nextImage()">&#10095;</button>
+        </div>
+    </div>
+    <div class="video-player-container">
+        <button id="prev-video">  < </button>
+        <video id="video-player" class="video-js" controls>
+            <!-- Asegúrate de tener al menos un fuente de video aquí para empezar -->
+            <source id="video-source" src="./src/volumenCuatro/1.mp4" type="video/mp4">
+        </video>
+        <button id="next-video"> > </button>
+    </div>
+    
+    
+    <h2>Síguenos en Instagram </h2>
         
         <a href="https://www.instagram.com/666.DCF.666" class="instagram-button instagram">
             <img src="./src/Instagram.png" width="2.5px" height="auto">
@@ -43,9 +100,8 @@
         <div class="sponsors">
             <h2>Patrocinadores Anteriores</h2>
             <ul>
-                <li>Patrocinador 1</li>
-                <li>Patrocinador 2</li>
-                <li>Patrocinador 3</li>
+                <li>FourLoko</li> <br>
+                <img src="./src/DiblitoFourLoko.png" width="500px" height="auto">
             </ul>
         </div>
     </main>

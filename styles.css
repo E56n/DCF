@@ -1,251 +1,331 @@
 /* Estilos generales */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: 'Times New Roman', Times, serif; /* Cambia el tipo de letra a Times New Roman */
-    background-image: url('./src/Fondo.png'); /* Aquí pones la ruta de tu imagen */
-    background-size: cover; /* Esto hace que la imagen cubra todo el fondo */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-attachment: fixed; /* Hace que la imagen de fondo se mantenga fija al hacer scroll */
-    color: #ffffff;
-    text-shadow: 
-    0 0 5px #ff00ff, 
-    0 0 10px #ff00ff, 
-    0 0 20px #ff00ff, 
-    0 0 40px #ff00ff, 
-    -2px -2px 2px #000000, /* Sombra negra más evidente */
-    2px -2px 2px #000000, 
-    -2px 2px 2px #000000, 
-    2px 2px 2px #000000; /* Contorno negro */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-  
-  header {
-    background-color: #000000;
-    text-align: center;
-    padding: 1em;
-  }
-  
-  .image-container {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .title-image {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  .image-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom right, rgba(255, 0, 255, 0.5), rgba(0, 255, 255, 0.5));
-    z-index: -1;
-  }
-  
-  main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2em;
-  }
-  
-  h2 {
-    color: #ff00ff;
-  }
-  
-  .carousel {
-    width: 100%;
-    height: 300px;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 2em;
-  }
-  
-  .carousel img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-  
-  .carousel img.active {
-    opacity: 1;
-  }
-  
-  .instagram-button {
-    display: inline-block;
-    padding: 0; /* Elimina el padding para que el botón se ajuste al tamaño de la imagen */
-    font-size: 16px;
-    color: #fff;
-    background-color: #ffffff00;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+
+body {
+  font-family: 'Times New Roman', Times, serif; /* Cambia el tipo de letra a Times New Roman */
+  background-image: url('./src/Fondo.png'); /* Aquí pones la ruta de tu imagen */
+  background-size: cover; /* Esto hace que la imagen cubra todo el fondo */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-attachment: fixed; /* Hace que la imagen de fondo se mantenga fija al hacer scroll */
+  color: #ffffff;
+  text-shadow: 
+  0 0 5px #ff00ff, 
+  0 0 10px #ff00ff, 
+  0 0 20px #ff00ff, 
+  0 0 40px #ff00ff, 
+  -2px -2px 2px #000000, /* Sombra negra más evidente */
+  2px -2px 2px #000000, 
+  -2px 2px 2px #000000, 
+  2px 2px 2px #000000; /* Contorno negro */
+}
+
+header {
+  background-color: #000000;
+  text-align: center;
+  padding: 1em;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.title-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom right, rgba(255, 0, 255, 0.5), rgba(0, 255, 255, 0.5));
+  z-index: -1;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2em;
+}
+
+h2 {
+  color: #ff00ff;
+}
+
+/* Estilos del carrusel */
+.carousel-container {
+  position: relative;
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+}
+
+.carousel {
+  display: flex;
+  width: 125%; /* Ajustado a 100% para adaptarse a la pantalla */
+  height: 1000px; /* Ajusta la altura según sea necesario */
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 2em;
+  align-items: center;
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra difusa */
+}
+
+.carousel img, .carousel video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Ocupa todo el ancho del carrusel */
+  height: 100%; /* Ocupa toda la altura del carrusel */
+  object-fit: cover; /* Cubre completamente el área del carrusel */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  border-radius: 15px; /* Bordes redondeados para las imágenes y videos */
+  border: 5px solid red; /* Añade un borde visible para ver si el video está siendo renderizado */
+}
+
+.carousel img.active, .carousel video.active {
+  opacity: 1; /* Solo la imagen o video activo será visible */
+}
+
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.7); /* Color de fondo de los botones con opacidad */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%; /* Botones redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra difusa para los botones */
+  z-index: 10; /* Asegura que los botones estén sobre el carrusel */
+  font-size: 1.5em;
+  transition: background-color 0.3s ease;
+}
+
+button.prev:hover, button.next:hover {
+  background-color: rgba(0, 0, 0, 0.9); /* Color de fondo más oscuro al pasar el ratón sobre los botones */
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+
+.video-player-container {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#video-player {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 15px; /* Bordes redondeados del reproductor de video */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra difusa para el reproductor de video */
+}
+
+#prev-video, #next-video {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.7); /* Color de fondo de los botones con opacidad */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%; /* Botones redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra difusa para los botones */
+  z-index: 10; /* Asegura que los botones estén sobre el reproductor de video */
+  font-size: 1.5em;
+  transition: background-color 0.3s ease;
+}
+
+#prev-video:hover, #next-video:hover {
+  background-color: rgba(0, 0, 0, 0.9); /* Color de fondo más oscuro al pasar el ratón sobre los botones */
+}
+
+#prev-video {
+  left: -50px; /* Ajusta la distancia desde el borde izquierdo del reproductor */
+}
+
+#next-video {
+  right: -50px; /* Ajusta la distancia desde el borde derecho del reproductor */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)); /* Degradado */
+  pointer-events: none; /* Permite la interacción con la imagen */
 }
 
 .instagram-button:hover {
-    background-color: #fbfbfc00;
+  background-color: #fbfbfc00;
 }
 
 .instagram-button img {
-    width: 5%; /* Ajusta el tamaño de la imagen al 50% */
-    height: auto;
-    display: block; /* Asegura que la imagen se muestre como un bloque */
+  width: 5%; /* Ajusta el tamaño de la imagen al 50% */
+  height: auto;
+  display: block; /* Asegura que la imagen se muestre como un bloque */
 }
 
-  
-  .sponsors {
-    background-color: #1a1a1a;
-    padding: 1em;
-    border-radius: 5px;
-  }
-  
+.sponsors {
+  background-color: #1a1a1a;
+  padding: 1em;
+  border-radius: 5px;
+}
+
 /* Estilos para la cuenta regresiva */
 #countdown {
-    text-align: center;
-    margin-top: 2em;
+  text-align: center;
+  margin-top: 2em;
 }
 
 #timer {
-    font-family: 'Times New Roman', Times, serif; /* Cambia el tipo de letra a Times New Roman */
-    font-size: 2.5em;
-    font-weight: bold;
-    color: #ff00ff; /* Color del texto */
-    background-color: #ffffff00; /* Fondo transparente */
-    padding: 1em;
-    border-radius: 5px;
-    text-shadow: 
-    0 0 5px #ff00ff, 
-    0 0 10px #ff00ff, 
-    0 0 20px #ff00ff, 
-    0 0 40px #ff00ff, 
-    -2px -2px 2px #000000, /* Sombra negra ligera */
-    -2px -2px 2px #000000, 
-    -2px -2px 2px #000000, 
-    5px 5px 5px #000000; /* Contorno negro */
+  font-family: 'Times New Roman', Times, serif; /* Cambia el tipo de letra a Times New Roman */
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #ff00ff; /* Color del texto */
+  background-color: #ffffff00; /* Fondo transparente */
+  padding: 1em;
+  border-radius: 5px;
+  text-shadow: 
+  0 0 5px #ff00ff, 
+  0 0 10px #ff00ff, 
+  0 0 20px #ff00ff, 
+  0 0 40px #ff00ff, 
+  -2px -2px 2px #000000, /* Sombra negra ligera */
+  -2px -2px 2px #000000, 
+  -2px -2px 2px #000000, 
+  5px 5px 5px #000000; /* Contorno negro */
 }
 
-  
-  /* Estilos adicionales */
+/* Estilos adicionales */
+.contenedor {
+  color: #000000;
+  text-align: center;
+  margin-top: 3%;
+}
+
+.cartel {
+  width: 109px;
+  height: 109px;
+  padding: 10px 0px 5px 0px;
+  text-align: center;
+  display: inline-block;
+  margin: 5px;
+  border: 3px solid #000000;
+  border-radius: 5px;
+}
+
+.cartel > div {
+  font-size: 50px;
+  font-family: 'Chela One', sans-serif;
+  animation: fade 3s;
+  line-height: 30px;
+  margin-top: 5px;
+}
+
+.cartel > div > h3 {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.h3 {
+  bottom: 0;
+  margin: 0 auto;
+}
+
+.contenido {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #1a1a1a;
+  border: 0px solid ;
+  z-index: 10;
+}
+
+li {
+  display: inline-block;
+  font-size: 1.5em;
+  list-style-type: none;
+  padding: 1em;
+  text-transform: uppercase;
+}
+
+li span {
+  display: block;
+  font-size: 4.5rem;
+}
+
+.numeros {
+  font-family: 'Chela One', sans-serif;
+  font-size: 60px;
+  transition: .3s;
+  animation-name: fade;
+  animation-duration: 3s;
+}
+
+.responsivo1 {
+  display: inline-block;
+}
+
+.responsivo2 {
+  display: inline-block;
+}
+
+/* Media queries */
+@media (max-width: 450px) {
   .contenedor {
-    color: #000000;
-    text-align: center;
-    margin-top: 3%;
-  }
-  
-  .cartel {
-    width: 109px;
-    height: 109px;
-    padding: 10px 0px 5px 0px;
-    text-align: center;
-    display: inline-block;
-    margin: 5px;
-    border: 3px solid #000000;
-    border-radius: 5px;
-  }
-  
-  .cartel > div {
-    font-size: 50px;
-    font-family: 'Chela One', sans-serif;
-    animation: fade 3s;
-    line-height: 30px;
-    margin-top: 5px;
-  }
-  
-  .cartel > div > h3 {
-    margin-top: 15px;
-    font-size: 20px;
-    font-weight: normal;
-  }
-  
-  .h3 {
-    bottom: 0;
-    margin: 0 auto;
-  }
-  
-  .contenido {
-    width: 80%;
-    margin: 0 auto;
-    background-color: #1a1a1a;
-    border: 0px solid ;
-    z-index: 10;
-  }
-  
-  li {
-    display: inline-block;
-    font-size: 1.5em;
-    list-style-type: none;
-    padding: 1em;
-    text-transform: uppercase;
-  }
-  
-  li span {
-    display: block;
-    font-size: 4.5rem;
-  }
-  
-  .numeros {
-    font-family: 'Chela One', sans-serif;
-    font-size: 60px;
-    transition: .3s;
-    animation-name: fade;
-    animation-duration: 3s;
-  }
-  
-  .responsivo1 {
-    display: inline-block;
-  }
-  
-  .responsivo2 {
-    display: inline-block;
-  }
-  
-  /* Media queries */
-  @media (max-width: 450px) {
-    .contenedor {
       margin-top: 15%;
-    }
-  
-    .banner {
+  }
+
+  .banner {
       margin-bottom: 30px;
-    }
-  
-    .cartel {
+  }
+
+  .cartel {
       height: 99px;
       width: 99px;
-    }
-  
-    .cartel > div {
+  }
+
+  .cartel > div {
       font-size: 45px;
-    }
-  
-    .cartel > div > h3 {
+  }
+
+  .cartel > div > h3 {
       font-size: 15px;
       margin-top: 0px;
-    }
   }
-  
-  /* Animaciones */
-  @keyframes fade {
-    0% {
+}
+
+/* Animaciones */
+@keyframes fade {
+  0% {
       opacity: 0;
-    }
-    30% {
+  }
+  30% {
       opacity: 0;
-    }
-    100% {
+  }
+  100% {
       opacity: 1;
-    }
   }
+}
