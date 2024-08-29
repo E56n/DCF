@@ -1,3 +1,17 @@
+const carousel = document.querySelector('.carousel');
+const images = carousel.querySelectorAll('img');
+let currentIndex = 0;
+
+function nextImage() {
+    images[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex + 1) % images.length;
+    images[currentIndex].classList.add('active');
+}
+
+setInterval(nextImage, 3000); // Cambia la imagen cada 3 segundos
+
+console.log("Bienvenido a El Diablo Convertido en Fiesta");
+
 // Cuenta regresiva
 function updateCountdown() {
     const countdownDate = new Date('2024-11-02T20:00:00-06:00'); // Fecha y hora en CDMX
@@ -22,3 +36,4 @@ function updateCountdown() {
 
 // Actualiza la cuenta regresiva cada segundo
 setInterval(updateCountdown, 1000);
+
